@@ -26,21 +26,11 @@ const pathSvgDarkMode = document.querySelector('#pathSvgDarkMode')
 const body = document.querySelector('body')
 const sections = document.querySelectorAll('section')
 const navbar = document.querySelector('#navbar');
-// const formSwitchInput = document.querySelector('.form-switch .form-check-input')
-// const formSwitchInputFocus =document.querySelector('.form-switch .form-check-input:focus')
-
-
-// .form-switch .form-check-input 
-// .form-switch .form-check-input:focus
-// divSwicthDark.innerHTML = viewdarkMode(false);
 
 
 flexSwitchDarckMode.addEventListener('input', (event) => {
-    // console.log('click');
-    // console.log(event);
-    // console.log(labelDarkMode);
+
     let isDark = ""
-    // console.log(event.target);
     let moon = `
         <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-moon-fill" viewBox="0 0 16 16">
             <path d="M6 .278a.768.768 0 0 1 .08.858 7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278z" />
@@ -52,20 +42,14 @@ flexSwitchDarckMode.addEventListener('input', (event) => {
         </svg>
     `;
     if (event.target.checked) {
-        // labelDarkMode.innerHTML = "Dark"
         labelDarkMode.innerHTML = moon;
-
         // isDark = true;
         darkMode()
     } else {
-        // labelDarkMode.innerHTML = "Light"
         labelDarkMode.innerHTML = sun;
-        console.log();
         // isDark = false;
         darkMode()
     }
-
-
 
 })
 
@@ -74,7 +58,6 @@ function darkMode() {
 
     sections.forEach(section => {
         section.classList.toggle('bg-dark')
-        console.log(section);
     });
 
     body.classList.toggle('bg-dark')
@@ -90,7 +73,7 @@ function ifTrueNone(navbarSupportedContent, topelm) {
     }
 }
 
-console.log(window.innerWidth);
+
 function reportWindowSize() {
 
     let phone = window.innerWidth < 992;
@@ -105,17 +88,10 @@ function reportWindowSize() {
                     </a>`
 
     if (pc) {
-
         return responsive.innerHTML = `<a target="_blank" class="nav-link" href="public/doc/cv.pdf">Mon CV</a>`;
-
     } if (phone) {
-
-        // console.log("Phone Size : " + window.innerWidth);
-
         return responsive.innerHTML = strLinkSvg;
     } if (tab) {
-
-        // 992
         return responsive.innerHTML = strLinkSvg;
     }
 }
@@ -139,45 +115,36 @@ function reveal() {
             }
 
         })
-
-
     }
 
     const observer = new IntersectionObserver(handleIntersect, options);
     document.querySelectorAll('.reveal').forEach(function (r) {
 
-        observer.observe(r) // r comme reveal
+        observer.observe(r)
     })
-
-
 
 }
 
 function addCookie(value) {
 
-    // let date = new Date(Date.now() + 60000);
     let date = new Date(Date.now() + 6000000000);
     date = date.toUTCString()
 
     document.cookie = `${KEY}=${value};path=/;expires=${date};SameSite=lax;Secure`
 
-    // console.log(document.cookie);
 }
 
 
 
 const htmlCollectionHref = document.getElementsByClassName("cookieClass")
-console.log(htmlCollectionHref);
+
 
 window.addEventListener('load', () => {
-    console.log('La page est complètement chargée load Bob');
+    console.log('La page est complètement chargée load ');
 
     for (let i = 0; i < htmlCollectionHref.length; i++) {
 
-        // const element = htmlCollectionHref.item(i)
-        // console.log(element);
 
-        // console.log(htmlCollectionHref.item(i));
         htmlCollectionHref.item(i).addEventListener('click', (e) => {
             addCookie(e.target.title)
             console.log(e.target.title);
@@ -200,7 +167,7 @@ function addElement(parentSelector, elementType, className, textContent, titleAt
     const parentElement = document.querySelector(parentSelector);
 
 
-    console.log(parentElement);
+    // console.log(parentElement);
 
     if (!parentElement) {
         console.error(`Parent element with selector '${parentSelector}' not found. bob`);
@@ -229,13 +196,11 @@ function showToast(parentSelector, toastClassName, message) {
 
     addElement(parentSelector, 'div', toastClassName, message, null);
 
-    // Affiche le toast
     const toast = document.querySelector(`${parentSelector} .${toastClassName}`);
 
     if (toast) {
         toast.style.display = 'block';
 
-        // Cache le toast après 4 secondes (4000 millisecondes)
         setTimeout(function () {
             toast.style.display = 'none';
         }, 4000);
@@ -244,18 +209,6 @@ function showToast(parentSelector, toastClassName, message) {
     }
 
 }
-
-
-
-// let toast2 = document.querySelector("#test");
-// toast2.addEventListener('click', (e) =>{
-
-//     console.log(e);
-//     showToast("#toast", 'toast-info', 'Teste')
-// })
-// console.log(toast2);
-
-// 
 
 
 reveal()
@@ -273,64 +226,3 @@ onResizeReport()
 ifTrueNone(navbarSupportedContent, topelm);
 
 
-
-
-// ___________________________________________________________________________________________________________________
-// -------------------------------------------------------------------------------------------------------------------
-// ----------------------------------------------- NO USED -----------------------------------------------------------
-// ___________________________________________________________________________________________________________________
-
-// function selected(nodeList, className) {
-//     console.log(nodeList);
-//     nodeList.forEach(element => {
-
-//         element.addEventListener("click", () => {
-
-//             nodeList.forEach(el => {
-
-//                 if (el.classList.contains(className)) {
-
-//                     el.classList.remove(className)
-
-//                 }
-
-//             })
-//             element.classList.add(className)
-
-//         })
-//     })
-// }
-
-
-// /**
-//  * la fonction addElmt ajoute un element html a un element parent
-//  *
-//  * @param {string} elmIdParent selecteur CSS
-//  * @param {string} noeudCre Type de nodeName / noeud
-//  * @param {string} classNameParam Nom de attibute class du noeud crée
-//  * @param {string} newContent contenu text de noeudCre, ne prend pas en charge le html
-//  *
-//  */
-// function addElmt(elmIdParent, noeudCre, classNameParam, newContent) {
-
-//     let elmAddParent = document.querySelector(elmIdParent);
-
-//     let newElm = document.createElement(noeudCre.toUpperCase());
-
-
-//     let elmtNewContent = document.createTextNode(newContent);
-//     // let elmtNewContent = document.createTextNode(newContent);
-
-//     newElm.setAttribute('class', classNameParam);
-
-//     //let elmtNewContent = document.innerHTML(newContent);
-
-//     // noeudCre.innerHTML = newContent;
-//     newElm.appendChild(elmtNewContent);
-
-//     elmAddParent.appendChild(newElm)
-
-// }
-// // addElmt("#teste1",'div','bob',rederTest("teste addElmt bob"))
-//------------------------------------------------------
-//------------------------------------------------------

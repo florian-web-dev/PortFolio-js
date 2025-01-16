@@ -1,0 +1,23 @@
+# Fichiers générés par le système d'exploitation
+.DS_Store
+Thumbs.db
+
+# Fichiers de configuration d'éditeur
+*.log
+.vscode/
+.idea/
+*.swp
+
+# Fichiers de dépendances
+node_modules/
+vendor/
+
+# Build et sorties de compilateurs
+dist/
+build/
+*.out
+
+# Fichiers sensibles
+.env
+*.key
+*.pem

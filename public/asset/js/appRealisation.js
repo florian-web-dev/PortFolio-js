@@ -1,11 +1,9 @@
-// const { effect } = require("vue")
 
 const titleProjetRealiz = document.querySelector('#title-projet-realiz')
 const tableTdLanguage = document.querySelector('#table-td-language')
 const tableTdFramwork = document.querySelector('#table-td-framework')
 const tableTdSgbd = document.querySelector('#table-td-sgbd')
 const tableTdGitLink = document.querySelector('#table-td-gitLink')
-
 
 const divRealizDiagrame = document.querySelector('#div-realiz-diagrame')
 
@@ -71,8 +69,6 @@ eachRenderBtnRealiz(dataRealisation)
 
 
 
-
-
 function eachDataRender(datas, cookieValue) {
     let chaine = "";
     let chaine2 = "";
@@ -98,7 +94,6 @@ function eachDataRender(datas, cookieValue) {
                 if (null != tableTdLanguage) {
                     tableTdLanguage.innerHTML = chaine
                 }
-
             });
 
             element.frameWork.forEach(el => {
@@ -107,7 +102,6 @@ function eachDataRender(datas, cookieValue) {
                 if (null != tableTdFramwork) {
                     tableTdFramwork.innerHTML = chaine2
                 }
-
             });
 
             element.analyse.forEach(el => {
@@ -116,7 +110,6 @@ function eachDataRender(datas, cookieValue) {
                 if (null != divRealizDiagrame) {
                     divRealizDiagrame.innerHTML = chaine3
                 }
-
             });
 
 
@@ -138,8 +131,6 @@ function eachDataRender(datas, cookieValue) {
 
 
 
-
-
 function checkACookieExists() {
 
     let cookieValue = "";
@@ -151,13 +142,11 @@ function checkACookieExists() {
         eachDataRender(dataRealisation, cookieValue);
 
     } else {
-        console.log(`no found ${KEY}`);
-        // add toast
+        // console.log(`no found ${KEY}`);
+        
         showToast("#toast", "Une erreur est survenue avec les cookie essentiel ", ".toast-alert")
     }
 }
-
-
 
 
 function clicktoshowRealisation() {
@@ -170,10 +159,6 @@ function clicktoshowRealisation() {
         }
     })
 }
-
-
-
-
 
 
 function addNodeElemWithContent(elmIdParent, noeudCre, classNameParam, newContent) {

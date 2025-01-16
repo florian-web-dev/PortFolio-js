@@ -106,14 +106,12 @@ function viewLanguageLogo(data, size = null, className = null) {
 
 function viewList(data) {
     return `
-
         <li class="list-group-item">${data.name}</li>
     `
 }
 
 function viewList2(data) {
     return `
-
         <div class="${data.className} m-auto">${data.name}</div>
     `
 }
@@ -165,12 +163,8 @@ function eachLanguaguesFrameWork(layer, isLang, callbackView = viewCard, paramVi
     } else if (layer == "backend" || layer == false) {
         keyType = isLang ? languages.backend : framework.backend
         elemId = isLang ? idSectionLangBack : idSectionFramBack;
-        // if (!isLang) {
-        //     // paramViewCardClassName = "div-skills-fram-back"
-
-        // }
+        
     }
-    // console.log(keyType);
     eachData(keyType, elemId, callbackView, paramViewCardClassName)
 
 }
@@ -235,7 +229,7 @@ function eachDataForshow(skillsObj, param) {
 
 
 window.addEventListener('load', () => {
-    console.log('La page est complètement chargée load');
+    // console.log('La page est complètement chargée load');
     reportWindowSize();
     eachDataForshow(skills, null)
     eachDataForshow(null, realiz)
@@ -257,80 +251,3 @@ showProgress.forEach(btnProgress => {
     })
 });
 
-
-
-// ________________________________________________________________________________________________________________
-// ----------------------------------------------------------------------------------------------------------------
-// -- version each DOM
-
-// const idSectionRealisationLang = document.querySelector(".langFront")
-// const nodeListLangFront = document.querySelectorAll(".langFront");
-// const nodeListLangBack = document.querySelectorAll(".langBack");
-// const nodeListFramFront = document.querySelectorAll(".framFront");
-// const nodeListFrameBack = document.querySelectorAll(".framBack");
-
-
-// -- individual element part,
-// -- add the class name then add the variable in an array or create a new array
-
-// const html = document.querySelectorAll('.html');
-// const css = document.querySelectorAll('.css');
-// const js = document.querySelectorAll('.js');
-// const php = document.querySelectorAll('.php');
-// const java = document.querySelectorAll('.java');
-// const sql = document.querySelectorAll('.sql');
-
-// const arrayNameClass = ['html', 'css', 'js', 'php', 'java', 'sql'];
-// const arrayNodeListLangF = [html, css, js];
-// const arrayNodeListLangB = [php, java, sql];
-
-// // ----------- Skill Language Frontend
-// let dataLangFront = skillLang.frontend;
-
-// // ----------- Skill Language Backend
-// let dataLangBack = skillLang.backend;
-
-// //----- add class array node -> show card -----
-// arrayNameClass.forEach(nodeElmName => {
-//     eachClassName(dataLangFront, nodeElmName, arrayNodeListLangF);
-//     eachClassName(dataLangBack, nodeElmName, arrayNodeListLangB);
-// });
-
-// /**
-//  *
-//  * @param {Array} dataObj data iterable
-//  * @param {String} className string is equals to class name
-//  * @param {Array} arrayNodeList is list to nodeList
-//  * @param {node} node Element
-//  */
-// function eachClassName(dataObj, className, arrayNodeList = null, elm = null,) {
-
-//     let chaine = "";
-//     for (let obj of dataObj) {
-
-//         if (obj.slug == className) {
-
-//             // chaine += viewCard(obj, "3rem");
-//             chaine += viewLanguageLogo(obj, "3rem");
-//         }
-
-//         if (arrayNodeList != null && obj.slug == className) {
-//             arrayNodeList.forEach(nodeElm => {
-
-//                 nodeElm.forEach(element => {
-//                     if (element.classList.contains(className)) {
-//                         element.innerHTML = chaine;
-//                     }
-
-//                 })
-//             })
-//         }
-//         if (elm != null) {
-
-//             elm.innerHTML = chaine
-//         }
-
-
-//     }
-
-// }
