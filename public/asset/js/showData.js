@@ -1,18 +1,12 @@
 
-const idSectionLangFront = document.querySelector("#langFront");
-const idSectionLangBack = document.querySelector("#langBack");
+const idSectionLangBack = document.getElementById("langBack")
+const idSectionLangFront = document.getElementById("langFront")
+const idSectionFramFront = document.getElementById("framFront");
+const idSectionFramBack = document.getElementById("framBack");
+const idSectionMobil = document.getElementById("mobil")
+const idSectionCms = document.getElementById("cms")
+const idSectionUml = document.getElementById("uml")
 
-const idSectionFramFront = document.querySelector("#framFront");
-const idSectionFramBack = document.querySelector("#framBack");
-
-const idSectionMobil = document.querySelector("#mobil")
-const idSectionCms = document.querySelector("#cms")
-
-const idSectionTools = document.querySelector("#tools")
-const idSectionUml = document.querySelector("#uml")
-
-const idFormationDw = document.querySelector('#formationDw');
-const idFormationCda = document.querySelector('#formationCda');
 
 const showProgress = document.querySelectorAll("[class*='showProgress-']")
 
@@ -118,11 +112,11 @@ function viewList2(data) {
 
 
 function viewAchiev(data) {
-    let imgUrl =""
+    let imgUrl = ""
     if (data.imgUrl == "") {
         imgUrl = "public/img/noir.jpg"
 
-    }else{
+    } else {
         imgUrl = data.imgUrl
     }
 
@@ -163,7 +157,7 @@ function eachLanguaguesFrameWork(layer, isLang, callbackView = viewCard, paramVi
     } else if (layer == "backend" || layer == false) {
         keyType = isLang ? languages.backend : framework.backend
         elemId = isLang ? idSectionLangBack : idSectionFramBack;
-        
+
     }
     eachData(keyType, elemId, callbackView, paramViewCardClassName)
 
@@ -235,19 +229,21 @@ window.addEventListener('load', () => {
     eachDataForshow(null, realiz)
 })
 
+if (showProgress) {
+    showProgress.forEach(btnProgress => {
+        btnProgress.addEventListener('click', function () {
 
-showProgress.forEach(btnProgress => {
-    btnProgress.addEventListener('click', function () {
+            let isFront = btnProgress.classList.contains('showProgress-front')
 
-        let isFront = btnProgress.classList.contains('showProgress-front')
+            if (btnProgress.checked) {
+                functionRunder = viewCardProgress
+            } else {
+                functionRunder = viewCard
+            }
 
-        if (btnProgress.checked) {
-            functionRunder = viewCardProgress
-        } else {
-            functionRunder = viewCard
-        }
+            eachLanguaguesFrameWork(isFront, true, functionRunder)
+        })
+    });
+}
 
-        eachLanguaguesFrameWork(isFront, true, functionRunder)
-    })
-});
 
